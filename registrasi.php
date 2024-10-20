@@ -57,7 +57,7 @@ if (isset($_POST['registrasi'])) {
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-5">
+            <div class="col-5 shadow p-5">
                 <h1 class="mb-5 text-center"> Registrasi peserta</h1>
                 <form action="" method="post">
                     <div class="mb-3">
