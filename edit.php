@@ -38,46 +38,44 @@ if(isset($_POST['edit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>Edit peserta</h1>
-    <form action="" method="post">
-        <table cellpadding="5">
-            <tr>
-                <td><label for="nama">Nama</label></td>
-                <td><input type="text" name="nama" id="nama" value="<?= $data_peserta['nama'] ?>"></td>
-            </tr>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-5 shadow p-5">
+                <h1 class="text-center my-5">Edit peserta</h1>
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" id="nama" value="<?= $data_peserta['nama'] ?>"class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="institusi">Institusi</label>
+                        <input type="text" name="institusi" id="institusi" value="<?= $data_peserta['institusi'] ?>"class="form-control">
+                    </div>
+                    <div class="mb-3">
 
-            <tr>
-                <td><label for="institusi">Institusi</label></td>
-                <td><input type="text" name="institusi" id="institusi" value="<?= $data_peserta['institusi'] ?>"></td>
-            </tr>
+                        <label for="country">Country</label>
+                            <select name="country" id="country"class="form-control">
+                                <?php foreach($country as $item): ?>
+                                    <option value="<?= $item ?>" <?= ($data_peserta['country'] == $item) ? 'selected' : '' ?>><?= $item ?></option>
+                                <?php endforeach ?>
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address" value="<?= $data_peserta['address'] ?>"class="form-control">
+                    </div>
+                
+                    <button type="submit" name="edit"class="btn btn-primary">Ubah</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-            <tr>
-                <td><label for="country">Country</label></td>
-                <td>
-                    <select name="country" id="country">
-                        <?php foreach($country as $item): ?>
-                            <option value="<?= $item ?>" <?= ($data_peserta['country'] == $item) ? 'selected' : '' ?>><?= $item ?></option>
-                        <?php endforeach ?>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td><label for="address">Address</label></td>
-                <td><input type="text" name="address" id="address" value="<?= $data_peserta['address'] ?>"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><button type="submit" name="edit">Ubah</button></td>
-            </tr>
-
-        </table>
-
-    </form>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
