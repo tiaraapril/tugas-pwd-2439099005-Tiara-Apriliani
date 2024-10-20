@@ -25,7 +25,7 @@ if(isset($_POST['registrasi'])) {
     }
 
     // tambah ke database
-    mysqli_query($conn, "INSERT INTO registration VALUES(NULL, '$nama', '$email', '$institusi', '$country', '$address')");
+    mysqli_query($conn, "INSERT INTO registration VALUES(NULL, '$nama', '$email', '$institusi', '$country', '$address', 0)");
 
     if(mysqli_affected_rows($conn)) {
         echo "<script>
