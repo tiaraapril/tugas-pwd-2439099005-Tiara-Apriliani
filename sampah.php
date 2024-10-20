@@ -7,7 +7,7 @@ if(!isset($_SESSION['is_login'])) {
     exit;
 }
 
-$data_peserta = mysqli_query($conn, "SELECT * FROM registration WHERE is_deleted = 0");
+$data_peserta = mysqli_query($conn, "SELECT * FROM registration WHERE is_deleted = 1");
 
 ?>
 
@@ -19,11 +19,10 @@ $data_peserta = mysqli_query($conn, "SELECT * FROM registration WHERE is_deleted
     <title>Halaman Admin | Kelola peserta</title>
 </head>
 <body>
-    <h1>Data peserta</h1>
+    <h1>Data Sampah</h1>
 
     <a href="registrasi.php">Registrasi Peserta</a>
-    <a href="sampah.php">Data Sampah</a>
-    <a href="logout.php">Logout</a>
+    <a href="index.php">Kembali</a>
 
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
@@ -45,7 +44,7 @@ $data_peserta = mysqli_query($conn, "SELECT * FROM registration WHERE is_deleted
                 <td><?= $data['institusi'] ?></td>
                 <td><?= $data['country'] ?></td>
                 <td><?= $data['address'] ?></td>
-                <td><a href="edit.php?id=<?= $data['id'] ?>">Edit</a> | <a href="hapus.php?id=<?= $data['id'] ?>">Hapus</a></td>
+                <td><a href="pulihkan.php?id=<?= $data['id'] ?>">Pulihkan</a> | <a href="hapus_permanen.php?id=<?= $data['id'] ?>">Hapus Permanen</a></td>
             </tr>
         <?php endforeach ?>
     </table>

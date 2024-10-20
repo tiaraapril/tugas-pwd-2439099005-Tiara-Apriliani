@@ -1,3 +1,30 @@
+<?php
+
+include('config.php');
+
+if(isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    
+    // cek username apakah sudah terdaftar
+    $result = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$username'");
+    if($row = $result->fetch_assoc()) {
+        // cek password
+        if(password_verify($password, $row['password'])) {
+            $_SESSION['is_login'] = true;
+            header('location: index.php');
+            exit;
+        }
+    }
+    echo "<script>
+                alert('Username atau password salah!')
+                document.location.href = 'login.php'
+            </script>";
+            exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

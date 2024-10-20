@@ -2,6 +2,11 @@
 
 include('config.php');
 
+if(!isset($_SESSION['is_login'])) {
+    header('location: login.php');
+    exit;
+}
+
 if(isset($_POST['registrasi'])) {
     $nama = $_POST['nama'];
     $email = $_POST['email'];
